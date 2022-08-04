@@ -1,17 +1,15 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 import { FeirappColors } from "../constants/colors";
+import ScreenHeader from "../components/ui/ScreenHeader";
+import ButtonScroll from "../components/ui/ButtonScroll";
 
 const MainScreen = () => {
   return (
     <View style={styles.rootContainer}>
       <View style={[styles.container, styles.titleContainer]}>
-        <Text style={[styles.titleText, styles.title]}>
-          Boas Vindas ao Feirapp!
-        </Text>
-        <Text style={[styles.titleText]}>
-          O seu organizador de compras de supermercado!
-        </Text>
+        <ScreenHeader />
+        <ButtonScroll />
       </View>
       <View style={[styles.container, styles.groceryItemsContainer]}>
         <Text>AQUI VAI A LISTA DE ITENS</Text>
@@ -31,22 +29,15 @@ const styles = StyleSheet.create({
   container: {
     width: "100%",
     paddingHorizontal: 24,
-},
-titleContainer: {
+  },
+  titleContainer: {
     backgroundColor: FeirappColors.primary010,
-    borderBottomColor: FeirappColors.primary030,
     borderBottomWidth: 5,
-    padding: 24,
+    borderBottomColor: FeirappColors.primary030,
   },
   groceryItemsContainer: {
     flex: 2,
   },
-  titleText: {
-    color: FeirappColors.secondary100,
-    fontWeight: "bold",
-  },
-  title: {
-    fontSize: 32,
-    marginBottom: 12,
-  },
+
+
 });
