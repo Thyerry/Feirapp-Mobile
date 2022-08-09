@@ -1,10 +1,23 @@
-import { StyleSheet, Text, View } from "react-native";
-import React from "react";
+import { FlatList, StyleSheet, Text, View } from "react-native";
+import { useEffect, useState } from "react";
+
 import { FeirappColors } from "../constants/colors";
 import ScreenHeader from "../components/ui/ScreenHeader";
 import ButtonScroll from "../components/ui/ButtonScroll";
-
+import GroceryItemAPI from "../apis/GroceryItemAPI";
+import GroceryItem from "../components/ui/GroceryItem/GroceryItem";
 const MainScreen = () => {
+  const [groceryItemList, setGroceryItemList] = useState([]);
+
+  useEffect(() => {
+    async function getGroceryList() {
+      const response = await GroceryItemAPI.getAll();
+      setGroceryItemList(response.data);
+    }
+
+    getGroceryList();
+  }, [GroceryItemAPI]);
+
   return (
     <View style={styles.rootContainer}>
       <View style={[styles.container, styles.titleContainer]}>
@@ -12,7 +25,13 @@ const MainScreen = () => {
         <ButtonScroll />
       </View>
       <View style={[styles.container, styles.groceryItemsContainer]}>
-        <Text>AQUI VAI A LISTA DE ITENS</Text>
+        <FlatList
+          numColumns={2}
+          style={styles.groceryItemList}
+          data={groceryItemList}
+          keyExtractor={(item) => item.id}
+          renderItem={(itemData) => <GroceryItem item={itemData.item} />}
+        />
       </View>
     </View>
   );
@@ -37,7 +56,9 @@ const styles = StyleSheet.create({
   },
   groceryItemsContainer: {
     flex: 2,
+    backgroundColor: `${FeirappColors.secondary010}77`,
   },
-
-
+  groceryItemList: {
+    marginTop: 12,
+  },
 });
