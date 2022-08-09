@@ -6,6 +6,7 @@ import ScreenHeader from "../components/ui/ScreenHeader";
 import ButtonScroll from "../components/ui/ButtonScroll";
 import GroceryItemAPI from "../apis/GroceryItemAPI";
 import GroceryItem from "../components/ui/GroceryItem/GroceryItem";
+import GroceryItemList from "../components/ui/GroceryItem/GroceryItemList";
 const MainScreen = () => {
   const [groceryItemList, setGroceryItemList] = useState([]);
 
@@ -20,19 +21,11 @@ const MainScreen = () => {
 
   return (
     <View style={styles.rootContainer}>
-      <View style={[styles.container, styles.titleContainer]}>
+      <View style={styles.titleContainer}>
         <ScreenHeader />
         <ButtonScroll />
       </View>
-      <View style={[styles.container, styles.groceryItemsContainer]}>
-        <FlatList
-          numColumns={2}
-          style={styles.groceryItemList}
-          data={groceryItemList}
-          keyExtractor={(item) => item.id}
-          renderItem={(itemData) => <GroceryItem item={itemData.item} />}
-        />
-      </View>
+      <GroceryItemList list={groceryItemList} />
     </View>
   );
 };
@@ -45,21 +38,11 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "baseline",
   },
-  container: {},
   titleContainer: {
     width: "100%",
     paddingHorizontal: 24,
     backgroundColor: FeirappColors.primary010,
     borderBottomWidth: 5,
     borderBottomColor: FeirappColors.primary030,
-  },
-  groceryItemsContainer: {
-    flex: 2,
-    backgroundColor: `${FeirappColors.secondary010}77`,
-    width: "100%",
-    paddingHorizontal: 12,
-  },
-  groceryItemList: {
-    marginTop: 6,
   },
 });

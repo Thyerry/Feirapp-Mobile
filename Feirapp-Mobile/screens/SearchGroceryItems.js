@@ -9,6 +9,7 @@ import {
   View,
 } from "react-native";
 import GroceryItemAPI from "../apis/GroceryItemAPI";
+import GroceryItemList from "../components/ui/GroceryItem/GroceryItemList";
 import { FeirappColors } from "../constants/colors";
 
 const SearchGroceryItems = () => {
@@ -45,13 +46,7 @@ const SearchGroceryItems = () => {
           </Pressable>
         </View>
       </View>
-      <View>
-        <FlatList
-          data={resultList}
-          keyExtractor={(item) => item.id}
-          renderItem={(itemData) => <Text>{itemData.item.name}</Text>}
-        />
-      </View>
+      <GroceryItemList list={resultList} />
     </View>
   );
 };
