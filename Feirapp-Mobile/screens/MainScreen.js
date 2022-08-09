@@ -45,11 +45,10 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "baseline",
   },
-  container: {
+  container: {},
+  titleContainer: {
     width: "100%",
     paddingHorizontal: 24,
-  },
-  titleContainer: {
     backgroundColor: FeirappColors.primary010,
     borderBottomWidth: 5,
     borderBottomColor: FeirappColors.primary030,
@@ -57,8 +56,10 @@ const styles = StyleSheet.create({
   groceryItemsContainer: {
     flex: 2,
     backgroundColor: `${FeirappColors.secondary010}77`,
+    width: "100%",
+    paddingHorizontal: 12,
   },
   groceryItemList: {
-    marginTop: 12,
+    marginTop: 6,
   },
 });

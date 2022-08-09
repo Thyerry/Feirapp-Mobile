@@ -15,21 +15,16 @@ const GroceryItem = ({ item }) => {
 
   return (
     <View style={styles.rootContainer}>
-      <Pressable
-        android_ripple={{ color: FeirappColors.primary011 }}
-        style={{ flex: 1 }}
-      >
-        <Image
-          source={{ uri: imageUrl }}
-          style={styles.image}
-          resizeMode="center"
-        />
+      <Pressable style={({ pressed }) => (pressed ? { opacity: 0.5 } : {})}>
         <View style={styles.innerContainer}>
-          <View style={styles.titleContainer}>
-            <Text style={styles.name}>{name}</Text>
-            {!!brandName && <Text style={styles.name}>{brandName}</Text>}
-          </View>
-          <View style={styles.priceContainer}>
+          <Image
+            source={{ uri: imageUrl }}
+            style={styles.image}
+            resizeMode="center"
+          />
+          <View style={styles.detailsContainer}>
+            <Text style={styles.text}>{name}</Text>
+            {!!brandName && <Text style={styles.text}>{brandName}</Text>}
             <Text style={styles.price}>R${price?.toFixed(2)}</Text>
           </View>
         </View>
@@ -42,27 +37,20 @@ export default GroceryItem;
 
 const styles = StyleSheet.create({
   rootContainer: {
-    flex: 1,
+    flex: 1 / 2,
     backgroundColor: FeirappColors.primary010,
-    margin: 2,
+    borderColor: FeirappColors.primary020,
+    borderWidth: 1,
     borderRadius: 12,
     elevation: 2,
     overflow: "hidden",
-    // Shadow for iOS
-    shadowColor: "black",
-    shadowOpacity: 1,
-    shadowOffset: { width: 0, height: 2 },
   },
   innerContainer: {
-    flex: 1,
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-    padding: 12,
+    alignItems: "flex-start",
   },
-  name: {
+  text: {
     fontWeight: "bold",
-    fontSize: 10,
+    fontSize: 12,
   },
   price: {
     fontSize: 16,
@@ -77,5 +65,8 @@ const styles = StyleSheet.create({
   titleContainer: {
     flex: 1,
     justifyContent: "center",
+  },
+  detailsContainer: {
+    margin: 2,
   },
 });
