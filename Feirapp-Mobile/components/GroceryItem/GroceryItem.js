@@ -12,9 +12,9 @@ const GroceryItem = ({ item }) => {
   const imageUrl = imagePicker(item.groceryImageUrl, categoryName.id);
 
   return (
-    <View style={styles.rootContainer}>
+    <View style={{ flex: 1 }}>
       <Pressable style={({ pressed }) => (pressed ? { opacity: 0.5 } : {})}>
-        <View style={styles.innerContainer}>
+        <View style={styles.rootContainer}>
           <Image
             source={{ uri: imageUrl }}
             style={styles.image}
@@ -36,16 +36,13 @@ export default GroceryItem;
 
 const styles = StyleSheet.create({
   rootContainer: {
-    flex: 1 / 2,
+    flex: 0.5,
     backgroundColor: FeirappColors.primary010,
     borderColor: FeirappColors.primary020,
     borderWidth: 1,
     borderRadius: 12,
-    elevation: 2,
     overflow: "hidden",
-  },
-  innerContainer: {
-    alignItems: "flex-start",
+    flexBasis: 0,
   },
   text: {
     fontWeight: "bold",
@@ -57,16 +54,12 @@ const styles = StyleSheet.create({
     color: FeirappColors.secondary070,
   },
   image: {
-    width: "100%",
     height: 70,
     backgroundColor: FeirappColors.secondary010,
   },
-  titleContainer: {
-    flex: 1,
-    justifyContent: "center",
-  },
   detailsContainer: {
-    margin: 2,
+    padding: 10,
+    height: 100,
   },
   store: {
     fontSize: 10,
