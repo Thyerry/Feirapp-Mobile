@@ -2,6 +2,7 @@ import { StatusBar } from "expo-status-bar";
 import { Platform, SafeAreaView, StyleSheet, Text, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+
 import MainScreen from "./screens/MainScreen";
 import { FeirappColors } from "./constants/colors";
 import SearchGroceryItems from "./screens/SearchGroceryItems";
@@ -17,6 +18,7 @@ const StackNaviator = () => {
           component={MainScreen}
           options={{
             headerShown: false,
+            title: "Principal",
           }}
         />
         <Stack.Screen
@@ -25,7 +27,8 @@ const StackNaviator = () => {
           options={{
             headerStyle: { backgroundColor: FeirappColors.primary010 },
             animation: "slide_from_bottom",
-            title: "Search",
+            title: "Pesquisar",
+            headerTitleStyle: { fontWeight: "bold" },
           }}
         />
       </Stack.Navigator>

@@ -5,18 +5,21 @@ import { FeirappColors } from "../constants/colors";
 import ScreenHeader from "../components/ui/ScreenHeader";
 import ButtonScroll from "../components/ui/ButtonScroll";
 import GroceryItemAPI from "../apis/GroceryItemAPI";
-import GroceryItem from "../components/ui/GroceryItem/GroceryItem";
-import GroceryItemList from "../components/ui/GroceryItem/GroceryItemList";
+import GroceryItemList from "../components/GroceryItem/GroceryItemList";
+import LoadingOverlay from "../components/ui/LoadingOverlay";
 const MainScreen = () => {
   const [groceryItemList, setGroceryItemList] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
+    setIsLoading(true);
     async function getGroceryList() {
       const response = await GroceryItemAPI.getAll();
       setGroceryItemList(response.data);
     }
 
     getGroceryList();
+    setIsLoading(false);
   }, [GroceryItemAPI]);
 
   return (
@@ -25,7 +28,11 @@ const MainScreen = () => {
         <ScreenHeader />
         <ButtonScroll />
       </View>
-      <GroceryItemList list={groceryItemList} />
+      {isLoading ? (
+        <LoadingOverlay />
+      ) : (
+        <GroceryItemList list={groceryItemList} />
+      )}
     </View>
   );
 };

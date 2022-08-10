@@ -1,7 +1,7 @@
 import { FlatList, StyleSheet, Text, View } from "react-native";
 import React from "react";
 import GroceryItem from "./GroceryItem";
-import { FeirappColors } from "../../../constants/colors";
+import { FeirappColors } from "../../constants/colors";
 
 const GroceryItemList = ({ list }) => {
   return (
