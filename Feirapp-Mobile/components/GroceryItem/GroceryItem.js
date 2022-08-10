@@ -1,13 +1,11 @@
 import { Image, Pressable, StyleSheet, Text, View } from "react-native";
 
-import { FeirappColors } from "../../../constants/colors";
-import { GroceryItemCategory } from "../../../constants/grocery-categories";
-import { imagePicker } from "../../../utils/image-picker";
+import { FeirappColors } from "../../constants/colors";
+import { GroceryItemCategory } from "../../constants/grocery-categories";
+import { imagePicker } from "../../utils/image-picker";
 
 const GroceryItem = ({ item }) => {
-  const name = item.name;
-  const brandName = item.brandName;
-  const price = item.price;
+  const { name, brandName, price, groceryStoreName } = item;
   const categoryName = GroceryItemCategory.find(
     (category) => category.id === item.groceryCategory
   );
@@ -25,6 +23,7 @@ const GroceryItem = ({ item }) => {
           <View style={styles.detailsContainer}>
             <Text style={styles.text}>{name}</Text>
             {!!brandName && <Text style={styles.text}>{brandName}</Text>}
+            <Text style={styles.store}>Mercado: {groceryStoreName}</Text>
             <Text style={styles.price}>R${price?.toFixed(2)}</Text>
           </View>
         </View>
@@ -68,5 +67,8 @@ const styles = StyleSheet.create({
   },
   detailsContainer: {
     margin: 2,
+  },
+  store: {
+    fontSize: 10,
   },
 });
