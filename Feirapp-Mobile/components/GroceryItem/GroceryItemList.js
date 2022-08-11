@@ -1,5 +1,5 @@
 import { FlatList, StyleSheet, Text, View } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 import GroceryItem from "./GroceryItem";
 import { FeirappColors } from "../../constants/colors";
 
@@ -8,7 +8,6 @@ const GroceryItemList = ({ list }) => {
     <View style={styles.groceryItemsContainer}>
       <FlatList
         numColumns={2}
-        style={styles.groceryItemList}
         data={list}
         keyExtractor={(item) => item.id}
         renderItem={(itemData) => <GroceryItem item={itemData.item} />}
@@ -24,9 +23,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: `${FeirappColors.secondary010}77`,
     width: "100%",
-    paddingHorizontal: 12,
-  },
-  groceryItemList: {
-    marginTop: 6,
+    padding: 12,
   },
 });
