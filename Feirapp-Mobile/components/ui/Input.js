@@ -1,6 +1,10 @@
-import { StyleSheet, Text, View, TextInput } from "react-native";
+import { StyleSheet, Text, View, TextInput, FlatList } from "react-native";
+import CurrencyInput from "react-native-currency-input";
+
 import { FeirappColors } from "../../constants/colors";
 import DatePicker from "./DatePicker";
+import { GroceryItemCategory } from "../../constants/grocery-categories";
+import DropList from "./DropList";
 
 const Input = ({ type, title, placeholder, value, onChange }) => {
   const inputType = () => {
@@ -18,15 +22,17 @@ const Input = ({ type, title, placeholder, value, onChange }) => {
         break;
       case "numeric":
         return (
-          <TextInput
+          <CurrencyInput
             placeholder={placeholder}
             keyboardType="numeric"
             style={styles.textInput}
             value={value}
-            onChangeText={onChange}
+            onChangeValue={onChange}
+            prefix="R$"
+            precision={2}
+            defaultValue="0"
           />
         );
-        break;
       case "date":
         return (
           <DatePicker
@@ -36,9 +42,11 @@ const Input = ({ type, title, placeholder, value, onChange }) => {
             textStyle={styles.dateTextInput}
           />
         );
-        break;
-      case "dropList":
-        break;
+      case "pickerSelect":
+        const items = GroceryItemCategory.map(
+          (category) => new Object({ label: category.name, value: category.id })
+        );
+        return <DropList value={value} onChange={onChange} items={items} />;
       default:
         break;
     }

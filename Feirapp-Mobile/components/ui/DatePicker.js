@@ -4,6 +4,7 @@ import { useState } from "react";
 
 import { dateFormatter, toUTC } from "../../utils/date";
 import Button from "./Button";
+import { FeirappColors } from "../../constants/colors";
 
 const DatePicker = ({ value, onChange, buttonStyle, textStyle }) => {
   const isIos = Platform.OS === "ios";
@@ -24,13 +25,22 @@ const DatePicker = ({ value, onChange, buttonStyle, textStyle }) => {
   return (
     <View style={styles.datePickerStyle}>
       {show && (
-        <DateTimePicker
-          testID="dateTimePicker"
-          value={value}
-          mode="date"
-          display="default"
-          onChange={onChangeValue}
-        />
+        <View
+          style={{
+            flexDirection: "row",
+          }}
+        >
+          <View style={{ width: "24%" }}></View>
+          <DateTimePicker
+            testID="dateTimePicker"
+            value={value}
+            mode="date"
+            display="default"
+            onChange={onChangeValue}
+            style={{ width: "53%" }}
+          />
+          <View style={{ width: "23%" }}></View>
+        </View>
       )}
       {!isIos && (
         <Button
@@ -48,6 +58,10 @@ const DatePicker = ({ value, onChange, buttonStyle, textStyle }) => {
 export default DatePicker;
 
 const styles = StyleSheet.create({
+  datePickerStyle: {
+    backgroundColor: FeirappColors.primary010,
+    padding: 1,
+  },
   button: {
     borderRadius: 0,
     marginVertical: 0,

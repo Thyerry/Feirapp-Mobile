@@ -30,6 +30,7 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     marginVertical: 8,
     overflow: "hidden",
+    zIndex: -1
   },
   button: {
     padding: 8,
