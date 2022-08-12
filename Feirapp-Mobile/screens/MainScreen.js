@@ -1,5 +1,6 @@
-import { FlatList, StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 import { useEffect, useState } from "react";
+import { useNavigation } from "@react-navigation/native";
 
 import { FeirappColors } from "../constants/colors";
 import ScreenHeader from "../components/ui/ScreenHeader";
@@ -7,9 +8,13 @@ import ButtonScroll from "../components/ui/ButtonScroll";
 import GroceryItemAPI from "../apis/GroceryItemAPI";
 import GroceryItemList from "../components/GroceryItem/GroceryItemList";
 import LoadingOverlay from "../components/ui/LoadingOverlay";
+
 const MainScreen = () => {
   const [groceryItemList, setGroceryItemList] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const navigator = useNavigation();
+
+  const navigationHandler = (screenName) => navigator.navigate(screenName);
 
   useEffect(() => {
     setIsLoading(true);
@@ -26,7 +31,7 @@ const MainScreen = () => {
     <View style={styles.rootContainer}>
       <View style={styles.titleContainer}>
         <ScreenHeader />
-        <ButtonScroll />
+        <ButtonScroll navigationHandler={navigationHandler} />
       </View>
       {isLoading ? (
         <LoadingOverlay />

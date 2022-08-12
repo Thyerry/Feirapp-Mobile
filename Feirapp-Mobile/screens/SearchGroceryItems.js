@@ -26,7 +26,6 @@ const SearchGroceryItems = () => {
       setResultList(response.data);
     } catch (error) {
       setGetError(error);
-      console.log(getError);
     }
     setIsLoading(false);
   };
