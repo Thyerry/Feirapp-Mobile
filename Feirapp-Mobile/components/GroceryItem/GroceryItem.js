@@ -12,7 +12,7 @@ const GroceryItem = ({ item }) => {
   const imageUrl = imagePicker(item.groceryImageUrl, categoryName.id);
 
   return (
-    <View style={{ flex: 1 }}>
+    <View style={{ flex: 0.5 }}>
       <Pressable style={({ pressed }) => (pressed ? { opacity: 0.5 } : {})}>
         <View style={styles.rootContainer}>
           <Image
