@@ -2,9 +2,7 @@ import { Platform, Pressable, StyleSheet, Text, View } from "react-native";
 import React from "react";
 import { FeirappColors } from "../../constants/colors";
 
-let aux = "";
-
-const Button = ({ children, onPress, style }) => {
+const Button = ({ children, onPress, style, textStyle }) => {
   return (
     <View style={[styles.buttonContainer, style]}>
       <Pressable
@@ -17,7 +15,7 @@ const Button = ({ children, onPress, style }) => {
         }
       >
         <View style={styles.button}>
-          <Text style={styles.text}>{children}</Text>
+          <Text style={[styles.text, textStyle]}>{children}</Text>
         </View>
       </Pressable>
     </View>
