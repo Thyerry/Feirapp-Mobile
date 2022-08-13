@@ -51,10 +51,11 @@ const GroceryItemForm = ({ isEditing, onSubmit, defaultValues }) => {
       groceryStoreName: input.groceryStoreName.value.trim(),
       purchaseDate: input.purchaseDate.value,
     };
+
     if (groceryItemValidator(groceryItemRequestBody, setInput)) {
-      console.log("erro");
       return;
     }
+
     onSubmit(groceryItemRequestBody);
   };
 
@@ -76,7 +77,7 @@ const GroceryItemForm = ({ isEditing, onSubmit, defaultValues }) => {
       />
       <Input
         type="text"
-        title="Noma de marca"
+        title="Nome de marca"
         placeholder="Ex.: Santa Clara"
         value={input.brandName.value}
         onChange={inputChangeHandler.bind(this, "brandName")}
