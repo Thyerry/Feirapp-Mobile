@@ -8,13 +8,6 @@ export const groceryItemValidator = (groceryItemRequestBody, setInput) => {
   const purchaseDateIsValid =
     groceryItemRequestBody.purchaseDate.toString() !== "Invalid Date";
 
-  console.log(groceryItemRequestBody.groceryStoreName);
-  console.log(`name ${nameIsValid}`);
-  console.log(`price ${priceIsValid}`);
-  console.log(`groeryCategory ${groceryCategoryIsValid}`);
-  console.log(`brandName ${brandNameIsValid}`);
-  console.log(`groceryStoreName ${groceryStoreNameIsValid}`);
-  console.log(`purchaseDateIsValid ${purchaseDateIsValid}`);
   if (
     !nameIsValid &&
     !priceIsValid &&

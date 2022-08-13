@@ -24,7 +24,7 @@ const ManageGroceryItem = ({ route, navigation }) => {
           `${response.data.name} foi adicionado com sucesso na base de dados`,
           [
             { text: "Adicionar mais um" },
-            { text: "Voltar", onPress: navigation.goBack() },
+            { text: "Voltar", onPress: () => navigation.goBack() },
           ]
         );
       }
