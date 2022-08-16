@@ -1,10 +1,10 @@
-import { StyleSheet, Text, View, TextInput, FlatList } from "react-native";
+import { StyleSheet, Text, View, TextInput } from "react-native";
 import CurrencyInput from "react-native-currency-input";
 
-import { FeirappColors } from "../../constants/colors";
 import DatePicker from "./DatePicker";
-import { GroceryItemCategory } from "../../constants/grocery-categories";
 import DropList from "./DropList";
+import { FeirappColors } from "../../constants/colors";
+import { GroceryItemCategory } from "../../constants/grocery-categories";
 
 const Input = ({ type, title, placeholder, value, onChange }) => {
   const inputType = () => {
@@ -19,7 +19,6 @@ const Input = ({ type, title, placeholder, value, onChange }) => {
             onChangeText={onChange}
           />
         );
-        break;
       case "numeric":
         return (
           <CurrencyInput

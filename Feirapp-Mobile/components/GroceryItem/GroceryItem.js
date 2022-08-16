@@ -1,19 +1,30 @@
 import { Image, Pressable, StyleSheet, Text, View } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 import { FeirappColors } from "../../constants/colors";
 import { GroceryItemCategory } from "../../constants/grocery-categories";
 import { imagePicker } from "../../utils/image-picker";
 
 const GroceryItem = ({ item }) => {
+  const navigation = useNavigation();
   const { name, brandName, price, groceryStoreName } = item;
   const categoryName = GroceryItemCategory.find(
     (category) => category.id === item.groceryCategory
   );
   const imageUrl = imagePicker(item.groceryImageUrl, categoryName.id);
 
+  const navigationHandler = () => {
+    navigation.navigate("GroceryItemDetails", {
+      groceryItem: item,
+    });
+  };
+
   return (
     <View style={{ flex: 0.5 }}>
-      <Pressable style={({ pressed }) => (pressed ? { opacity: 0.5 } : {})}>
+      <Pressable
+        onPress={navigationHandler}
+        style={({ pressed }) => (pressed ? { opacity: 0.5 } : {})}
+      >
         <View style={styles.rootContainer}>
           <Image
             source={{ uri: imageUrl }}

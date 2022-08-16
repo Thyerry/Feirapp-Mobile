@@ -7,6 +7,7 @@ import MainScreen from "./screens/MainScreen";
 import { FeirappColors } from "./constants/colors";
 import SearchGroceryItems from "./screens/SearchGroceryItems";
 import ManageGroceryItem from "./screens/ManageGroceryItem";
+import GroceryItemDetails from "./screens/GroceryItemDetails";
 
 const Stack = createNativeStackNavigator();
 
@@ -29,6 +30,16 @@ const StackNaviator = () => {
             headerStyle: { backgroundColor: FeirappColors.primary010 },
             animation: "slide_from_bottom",
             title: "Pesquisar",
+            headerTitleStyle: { fontWeight: "bold" },
+          }}
+        />
+        <Stack.Screen
+          name="GroceryItemDetails"
+          component={GroceryItemDetails}
+          options={{
+            headerStyle: { backgroundColor: FeirappColors.primary010 },
+            animation: "slide_from_right",
+            title: "Detalhes",
             headerTitleStyle: { fontWeight: "bold" },
           }}
         />

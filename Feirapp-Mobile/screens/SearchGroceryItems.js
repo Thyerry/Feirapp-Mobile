@@ -5,6 +5,7 @@ import { Pressable, StyleSheet, TextInput, View } from "react-native";
 import GroceryItemAPI from "../apis/GroceryItemAPI";
 import GroceryItemList from "../components/GroceryItem/GroceryItemList";
 import ErrorMessage from "../components/ui/ErrorMessage";
+import IconButton from "../components/ui/IconButton";
 import LoadingOverlay from "../components/ui/LoadingOverlay";
 import { FeirappColors } from "../constants/colors";
 
@@ -63,14 +64,12 @@ const SearchGroceryItems = () => {
             onChangeText={textInputHandler}
             onSubmitEditing={searchItemHandler}
           />
-          <Pressable
-            style={({ pressed }) => (pressed ? { opacity: 0.5 } : {})}
+          <IconButton
+            name="search"
+            size={13}
             onPress={searchItemHandler}
-          >
-            <View style={styles.searchButton}>
-              <Ionicons name="search" size={13} />
-            </View>
-          </Pressable>
+            style={styles.searchButton}
+          />
         </View>
       </View>
       {listContainerHandler()}
