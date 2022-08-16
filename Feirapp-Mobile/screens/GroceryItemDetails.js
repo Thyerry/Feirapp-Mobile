@@ -4,6 +4,7 @@ import { FeirappColors } from "../constants/colors";
 import { dateFormatter } from "../utils/date";
 import { imagePicker } from "../utils/image-picker";
 import { GroceryItemCategory } from "../constants/grocery-categories";
+import IconButton from "../components/ui/IconButton";
 import GroceryItemDetail from "../components/GroceryItem/GroceryItemDetail";
 
 const GroceryItemDetails = ({ route, navigation }) => {
@@ -22,15 +23,35 @@ const GroceryItemDetails = ({ route, navigation }) => {
   const category = GroceryItemCategory.find(
     (category) => category.id === groceryCategory
   );
-  //   console.log(navigation);
-  //   useLayoutEffect(() => {
-  //     navigation.setOptions({
-  //       headerRight: () => <Button title="alow" />,
-  //     });
-  //   }, [navigation, ]);
+
+  const navigationHandler = () => {
+    navigation.navigate("AddGroceryItem", {
+      groceryItem: route.params?.groceryItem,
+    });
+  };
+
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      headerRight: () => (
+        <View style={{ flexDirection: "row" }}>
+          <IconButton
+            name="trash"
+            size={24}
+            onPress={() => alert("deletar GroceryItem")}
+            style={{ marginHorizontal: 14 }}
+          />
+          <IconButton
+            name="create-outline"
+            size={24}
+            onPress={navigationHandler}
+          />
+        </View>
+      ),
+    });
+  }, [navigation]);
 
   return (
-    <View style={styles.rootContainer} bounces={false}>
+    <View style={styles.rootContainer}>
       <View style={styles.imageContainer}>
         <Image
           source={{ uri: imageUrl }}

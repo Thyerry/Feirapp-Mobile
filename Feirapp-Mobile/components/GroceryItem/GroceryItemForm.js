@@ -28,7 +28,7 @@ const GroceryItemForm = ({ isEditing, onSubmit, defaultValues }) => {
       isValid: true,
     },
     purchaseDate: {
-      value: defaultValues ? defaultValues.purchaseDate : new Date(),
+      value: defaultValues ? new Date(defaultValues.purchaseDate) : new Date(),
       isValid: true,
     },
   });
