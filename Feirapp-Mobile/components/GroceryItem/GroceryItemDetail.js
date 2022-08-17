@@ -2,11 +2,11 @@ import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 import { FeirappColors } from "../../constants/colors";
 
-const GroceryItemDetail = ({ title, value, style }) => {
+const GroceryItemDetail = ({ title, value, containerStyle, textStyle }) => {
   return (
-    <View style={styles.container}>
-      <Text style={style}>{title}</Text>
-      <Text style={style}>{value}</Text>
+    <View style={[styles.container, containerStyle]}>
+      <Text style={textStyle}>{title}</Text>
+      <Text style={textStyle}>{value}</Text>
     </View>
   );
 };

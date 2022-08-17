@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Image } from "react-native";
+import { StyleSheet, Text, View, Image, FlatList } from "react-native";
 import React, { useLayoutEffect } from "react";
 import { FeirappColors } from "../constants/colors";
 import { dateFormatter } from "../utils/date";
@@ -13,12 +13,12 @@ const GroceryItemDetails = ({ route, navigation }) => {
     groceryCategory,
     groceryImageUrl,
     groceryStoreName,
-    id,
+    priceHistory,
     name,
     price,
     purchaseDate,
   } = route.params?.groceryItem;
-
+  console.log(priceHistory);
   const imageUrl = imagePicker(groceryImageUrl, groceryCategory);
   const category = GroceryItemCategory.find(
     (category) => category.id === groceryCategory
@@ -62,28 +62,51 @@ const GroceryItemDetails = ({ route, navigation }) => {
       <View style={styles.detailsContainer}>
         <View style={styles.titleView}>
           <Text style={styles.title}>{name}</Text>
-          <Text style={[styles.title, styles.price]}>R${price}</Text>
+          <Text style={[styles.title, styles.price]}>R${price.toFixed(2)}</Text>
         </View>
         <GroceryItemDetail
           title="Marca"
           value={brandName}
-          style={styles.text}
+          textStyle={styles.text}
         />
         <GroceryItemDetail
           title="Data de compra"
           value={dateFormatter(new Date(purchaseDate), "dd/mm/yyyy")}
-          style={styles.text}
+          textStyle={styles.text}
         />
         <GroceryItemDetail
           title="Categoria"
           value={category.name}
-          style={styles.text}
+          textStyle={styles.text}
         />
         <GroceryItemDetail
           title="Mercado"
           value={groceryStoreName}
-          style={styles.text}
+          textStyle={styles.text}
         />
+        <View style={styles.priceHistoryContainer}>
+          <Text style={styles.priceHistoryTitle}>Historico de Preços</Text>
+          <FlatList
+            data={priceHistory}
+            keyExtractor={(item) => priceHistory.indexOf(item)}
+            renderItem={(itemData) => (
+              <GroceryItemDetail
+                title={dateFormatter(
+                  new Date(itemData.item.logDate),
+                  "dd/mm/yyyy"
+                )}
+                value={`R$${itemData.item.price.toFixed(2)}`}
+                textStyle={[styles.text, { padding: 5 }]}
+                containerStyle={{
+                  justifyContent: "space-evenly",
+                  borderWidth: 1,
+                  borderColor: FeirappColors.primary060,
+                  borderRadius: 24,
+                }}
+              />
+            )}
+          />
+        </View>
       </View>
     </View>
   );
@@ -127,5 +150,16 @@ const styles = StyleSheet.create({
   price: {
     fontSize: 24,
     color: FeirappColors.secondary070,
+  },
+  priceHistoryContainer: {
+    height: "50%",
+    borderBottomEndRadius: 24,
+    borderBottomStartRadius: 24,
+  },
+  priceHistoryTitle: {
+    padding: 10,
+    textAlign: "center",
+    fontSize: 24,
+    fontWeight: "bold",
   },
 });
