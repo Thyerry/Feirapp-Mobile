@@ -1,5 +1,7 @@
 import { StyleSheet, Text, View } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 import React, { useState } from "react";
+
 import { groceryItemValidator } from "../../constants/validators";
 import Input from "../ui/Input";
 import Button from "../ui/Button";
@@ -7,6 +9,10 @@ import { FeirappColors } from "../../constants/colors";
 
 const GroceryItemForm = ({ isEditing, onSubmit, defaultValues }) => {
   const [input, setInput] = useState({
+    id: {
+      value: defaultValues ? defaultValues.id : "",
+      isValid: true,
+    },
     name: {
       value: defaultValues ? defaultValues.name : "",
       isValid: true,
@@ -44,6 +50,7 @@ const GroceryItemForm = ({ isEditing, onSubmit, defaultValues }) => {
 
   const submitHandler = () => {
     const groceryItemRequestBody = {
+      id: input.id.value.trim(),
       name: input.name.value.trim(),
       price: input.price.value,
       groceryCategory: input.groceryCategory.value,

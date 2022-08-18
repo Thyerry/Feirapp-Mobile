@@ -1,5 +1,5 @@
 import { StyleSheet, Alert } from "react-native";
-import { useState } from "react";
+import { useLayoutEffect, useState } from "react";
 
 import { FeirappColors } from "../constants/colors";
 import GroceryItemAPI from "../apis/GroceryItemAPI";
@@ -12,6 +12,12 @@ const ManageGroceryItem = ({ route, navigation }) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const groceryItem = route.params?.groceryItem;
   const isEditing = !!groceryItem;
+
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      title: isEditing ? "Editar" : "Adicionar",
+    });
+  }, [navigation, isEditing]);
 
   const confirmHandler = async (groceryItemRequestBody) => {
     setIsSubmitting(true);
@@ -27,8 +33,18 @@ const ManageGroceryItem = ({ route, navigation }) => {
             { text: "Voltar", onPress: () => navigation.goBack() },
           ]
         );
+      } else {
+        const response = await GroceryItemAPI.update(groceryItemRequestBody);
+        setIsSubmitting(false);
+        Alert.alert(
+          "Alteração feita!",
+          `${response.data.name} foi alterado com sucesso na base de dados`,
+          [{ text: "Voltar", onPress: () => navigation.goBack() }]
+        );
       }
-    } catch (error) {
+    } catch ({ response }) {
+      console.log(response.status);
+      console.log(response.data);
       setError(true);
       setIsSubmitting(false);
     }
@@ -36,13 +52,14 @@ const ManageGroceryItem = ({ route, navigation }) => {
 
   if (error) return <ErrorMessage>deu ruim aí</ErrorMessage>;
 
-  if (isSubmitting)
+  if (isSubmitting) {
     return (
       <LoadingOverlay
         backgroundColor={{ backgroundColor: FeirappColors.secondary010 }}
         spinnerColor={FeirappColors.primary050}
       />
     );
+  }
 
   return (
     <GroceryItemForm

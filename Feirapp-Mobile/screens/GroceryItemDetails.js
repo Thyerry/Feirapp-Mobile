@@ -18,14 +18,14 @@ const GroceryItemDetails = ({ route, navigation }) => {
     price,
     purchaseDate,
   } = route.params?.groceryItem;
-  console.log(priceHistory);
+
   const imageUrl = imagePicker(groceryImageUrl, groceryCategory);
   const category = GroceryItemCategory.find(
     (category) => category.id === groceryCategory
   );
 
   const navigationHandler = () => {
-    navigation.navigate("AddGroceryItem", {
+    navigation.navigate("ManageGroceryItem", {
       groceryItem: route.params?.groceryItem,
     });
   };

@@ -44,12 +44,11 @@ const StackNaviator = () => {
           }}
         />
         <Stack.Screen
-          name="AddGroceryItem"
+          name="ManageGroceryItem"
           component={ManageGroceryItem}
           options={{
             headerStyle: { backgroundColor: FeirappColors.primary010 },
             animation: "slide_from_right",
-            title: "Adicionar",
             headerTitleStyle: { fontWeight: "bold" },
           }}
         />
