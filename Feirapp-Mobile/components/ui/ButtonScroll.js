@@ -11,7 +11,7 @@ const ButtonScroll = ({ navigationHandler }) => {
       <View style={styles.buttonsContainer}>
         <Button
           style={styles.button}
-          onPress={navigateTo.bind(this, "AddGroceryItem")}
+          onPress={navigateTo.bind(this, "ManageGroceryItem")}
         >
           Novo Produto
         </Button>
