@@ -17,15 +17,26 @@ const MainScreen = () => {
   const navigationHandler = (screenName) => navigator.navigate(screenName);
 
   useEffect(() => {
-    setIsLoading(true);
     async function getGroceryList() {
+      setIsLoading(true);
       const response = await GroceryItemAPI.getAll();
       setGroceryItemList(response.data);
+      setIsLoading(false);
     }
-
     getGroceryList();
-    setIsLoading(false);
   }, [GroceryItemAPI]);
+
+  const renderGroceryList = () => {
+    while (isLoading) {
+      return (
+        <LoadingOverlay
+          backgroundColor={{ backgroundColor: FeirappColors.secondary010 }}
+          spinnerColor={FeirappColors.primary050}
+        />
+      );
+    }
+    return <GroceryItemList list={groceryItemList} />;
+  };
 
   return (
     <View style={styles.rootContainer}>
@@ -33,11 +44,7 @@ const MainScreen = () => {
         <ScreenHeader />
         <ButtonScroll navigationHandler={navigationHandler} />
       </View>
-      {isLoading ? (
-        <LoadingOverlay />
-      ) : (
-        <GroceryItemList list={groceryItemList} />
-      )}
+      {renderGroceryList()}
     </View>
   );
 };

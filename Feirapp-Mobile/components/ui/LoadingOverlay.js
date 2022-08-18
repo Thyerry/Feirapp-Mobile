@@ -14,6 +14,7 @@ export default LoadingOverlay;
 const styles = StyleSheet.create({
   overlay: {
     flex: 1,
+    width: "100%",
     justifyContent: "center",
     alignItems: "center",
     padding: 24,

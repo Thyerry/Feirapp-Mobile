@@ -1,14 +1,17 @@
-import { StyleSheet, Text, View, Image, FlatList } from "react-native";
+import { StyleSheet, Text, View, Image, FlatList, Alert } from "react-native";
 import React, { useLayoutEffect } from "react";
+
 import { FeirappColors } from "../constants/colors";
 import { dateFormatter } from "../utils/date";
 import { imagePicker } from "../utils/image-picker";
 import { GroceryItemCategory } from "../constants/grocery-categories";
 import IconButton from "../components/ui/IconButton";
 import GroceryItemDetail from "../components/GroceryItem/GroceryItemDetail";
+import GroceryItemAPI from "../apis/GroceryItemAPI";
 
 const GroceryItemDetails = ({ route, navigation }) => {
   const {
+    id,
     brandName,
     groceryCategory,
     groceryImageUrl,
@@ -30,6 +33,26 @@ const GroceryItemDetails = ({ route, navigation }) => {
     });
   };
 
+  const deleteHandler = async () => {
+    try {
+      console.log(id);
+      await GroceryItemAPI.delete(id);
+      Alert.alert(
+        "Produto excluído",
+        `${name} foi excluído com sucesso do banco de dados`,
+        [{ text: "Voltar", onPress: () => navigation.goBack() }]
+      );
+    } catch (error) {
+      //console.log(error.response.data);
+    }
+  };
+  const onDelete = () => {
+    Alert.alert("Confirmar", `Você tem certeza que quer excluir ${name}`, [
+      { text: "Sim", onPress: () => deleteHandler() },
+      { text: "Não" },
+    ]);
+  };
+
   useLayoutEffect(() => {
     navigation.setOptions({
       headerRight: () => (
@@ -37,7 +60,7 @@ const GroceryItemDetails = ({ route, navigation }) => {
           <IconButton
             name="trash"
             size={24}
-            onPress={() => alert("deletar GroceryItem")}
+            onPress={onDelete}
             style={{ marginHorizontal: 14 }}
           />
           <IconButton

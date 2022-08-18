@@ -8,5 +8,5 @@ export default GroceryItemAPI = {
   getName: async (name) => await axios.get(`${APIUrl}Name/${name}`),
   update: async (groceryItem) => await axios.put(APIUrl, groceryItem),
   create: async (groceryItem) => await axios.post(APIUrl, groceryItem),
-  delete: async (id) => await axios.delete(APIUrl, id),
+  delete: async (groceryId) => await axios.delete(`${APIUrl}?groceryId=${groceryId}`),
 };
