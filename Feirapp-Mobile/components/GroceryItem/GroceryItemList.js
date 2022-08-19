@@ -11,7 +11,7 @@ const GroceryItemList = ({ list, refresh, onRefresh }) => {
         data={list}
         keyExtractor={(item) => item.id}
         renderItem={(itemData) => <GroceryItem item={itemData.item} />}
-        refreshing={refresh}
+        refreshing={!!refresh}
         onRefresh={onRefresh}
       />
     </View>
