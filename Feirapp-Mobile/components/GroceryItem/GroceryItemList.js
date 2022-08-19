@@ -1,9 +1,9 @@
-import { FlatList, StyleSheet, Text, View } from "react-native";
-import React, { useState } from "react";
+import { FlatList, StyleSheet, View } from "react-native";
+import React from "react";
 import GroceryItem from "./GroceryItem";
 import { FeirappColors } from "../../constants/colors";
 
-const GroceryItemList = ({ list }) => {
+const GroceryItemList = ({ list, refresh, onRefresh }) => {
   return (
     <View style={styles.groceryItemsContainer}>
       <FlatList
@@ -11,6 +11,8 @@ const GroceryItemList = ({ list }) => {
         data={list}
         keyExtractor={(item) => item.id}
         renderItem={(itemData) => <GroceryItem item={itemData.item} />}
+        refreshing={refresh}
+        onRefresh={onRefresh}
       />
     </View>
   );

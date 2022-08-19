@@ -50,7 +50,7 @@ const SearchGroceryItems = () => {
         </ErrorMessage>
       );
 
-    return <GroceryItemList list={resultList} />;
+    return <GroceryItemList list={resultList} onRefresh={searchItemHandler}/>;
   };
 
   return (
