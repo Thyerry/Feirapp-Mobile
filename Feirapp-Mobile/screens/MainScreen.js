@@ -12,6 +12,7 @@ import LoadingOverlay from "../components/ui/LoadingOverlay";
 const MainScreen = () => {
   const [groceryItemList, setGroceryItemList] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [refresh, setRefresh] = useState(false);
   const navigator = useNavigation();
 
   const navigationHandler = (screenName) => navigator.navigate(screenName);
@@ -19,12 +20,19 @@ const MainScreen = () => {
   useEffect(() => {
     async function getGroceryList() {
       setIsLoading(true);
-      const response = await GroceryItemAPI.getAll();
+      const response = await GroceryItemAPI.getRandom(6);
       setGroceryItemList(response.data);
       setIsLoading(false);
     }
     getGroceryList();
   }, [GroceryItemAPI]);
+
+  const onRefresh = async () => {
+    setRefresh(true);
+    const response = await GroceryItemAPI.getRandom(6);
+    setGroceryItemList(response.data);
+    setRefresh(false);
+  };
 
   const renderGroceryList = () => {
     while (isLoading) {
@@ -35,7 +43,13 @@ const MainScreen = () => {
         />
       );
     }
-    return <GroceryItemList list={groceryItemList} />;
+    return (
+      <GroceryItemList
+        list={groceryItemList}
+        refresh={refresh}
+        onRefresh={onRefresh}
+      />
+    );
   };
 
   return (
