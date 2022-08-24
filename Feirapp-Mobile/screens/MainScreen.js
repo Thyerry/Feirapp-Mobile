@@ -20,7 +20,7 @@ const MainScreen = () => {
   useEffect(() => {
     async function getGroceryList() {
       setIsLoading(true);
-      const response = await GroceryItemAPI.getAll();
+      const response = await GroceryItemAPI.getRandom(6);
       setGroceryItemList(response.data);
       setIsLoading(false);
     }
@@ -29,7 +29,7 @@ const MainScreen = () => {
 
   const onRefresh = async () => {
     setRefresh(true);
-    const response = await GroceryItemAPI.getAll();
+    const response = await GroceryItemAPI.getRandom(6);
     setGroceryItemList(response.data);
     setRefresh(false);
   };
