@@ -1,13 +1,13 @@
 import { StyleSheet, Text, View, Image, FlatList, Alert } from "react-native";
 import React, { useLayoutEffect } from "react";
 
-import { FeirappColors } from "../constants/colors";
-import { dateFormatter } from "../utils/date";
-import { imagePicker } from "../utils/image-picker";
-import { GroceryItemCategory } from "../constants/grocery-categories";
-import IconButton from "../components/ui/IconButton";
-import GroceryItemDetail from "../components/GroceryItem/GroceryItemDetail";
-import GroceryItemAPI from "../apis/GroceryItemAPI";
+import { FeirappColors } from "../../constants/colors";
+import { dateFormatter } from "../../utils/date";
+import { imagePicker } from "../../utils/image-picker";
+import { GroceryItemCategory } from "../../constants/grocery-categories";
+import IconButton from "../../components/IconButton";
+import GroceryItemDetail from "../../components/GroceryItemDetail";
+import GroceryItemAPI from "../../apis/GroceryItemAPI";
 
 const GroceryItemDetails = ({ route, navigation }) => {
   const {

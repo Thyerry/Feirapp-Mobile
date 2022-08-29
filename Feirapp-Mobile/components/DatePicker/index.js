@@ -3,7 +3,7 @@ import DateTimePicker from "@react-native-community/datetimepicker";
 import { useState } from "react";
 
 import { dateFormatter, toUTC } from "../../utils/date";
-import Button from "./Button";
+import Button from "../Button";
 import { FeirappColors } from "../../constants/colors";
 
 const DatePicker = ({ value, onChange, buttonStyle, textStyle }) => {

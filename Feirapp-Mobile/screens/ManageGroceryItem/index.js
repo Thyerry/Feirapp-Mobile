@@ -1,11 +1,11 @@
 import { StyleSheet, Alert } from "react-native";
 import { useLayoutEffect, useState } from "react";
 
-import { FeirappColors } from "../constants/colors";
-import GroceryItemAPI from "../apis/GroceryItemAPI";
-import ErrorMessage from "../components/ui/ErrorMessage";
-import LoadingOverlay from "../components/ui/LoadingOverlay";
-import GroceryItemForm from "../components/GroceryItem/GroceryItemForm";
+import { FeirappColors } from "../../constants/colors";
+import GroceryItemAPI from "../../apis/GroceryItemAPI";
+import ErrorMessage from "../../components/ErrorMessage";
+import LoadingOverlay from "../../components/LoadingOverlay";
+import GroceryItemForm from "../../components/GroceryItemForm";
 
 const ManageGroceryItem = ({ route, navigation }) => {
   const [error, setError] = useState(false);

@@ -2,12 +2,12 @@ import { StyleSheet, View } from "react-native";
 import { useEffect, useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 
-import { FeirappColors } from "../constants/colors";
-import ScreenHeader from "../components/ui/ScreenHeader";
-import ButtonScroll from "../components/ui/ButtonScroll";
-import GroceryItemAPI from "../apis/GroceryItemAPI";
-import GroceryItemList from "../components/GroceryItem/GroceryItemList";
-import LoadingOverlay from "../components/ui/LoadingOverlay";
+import { FeirappColors } from "../../constants/colors";
+import ScreenHeader from "../../components/ScreenHeader";
+import ButtonScroll from "../../components/ButtonScroll";
+import GroceryItemAPI from "../../apis/GroceryItemAPI";
+import GroceryItemList from "../../components/GroceryItemList";
+import LoadingOverlay from "../../components/LoadingOverlay";
 
 const MainScreen = () => {
   const [groceryItemList, setGroceryItemList] = useState([]);
