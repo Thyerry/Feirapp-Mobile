@@ -1,5 +1,5 @@
 import { ScrollView, StyleSheet, Text, View } from "react-native";
-import Button from "./Button";
+import Button from "../Button";
 import { FeirappColors } from "../../constants/colors";
 
 const ButtonScroll = ({ navigationHandler }) => {

@@ -3,8 +3,8 @@ import { useNavigation } from "@react-navigation/native";
 import React, { useState } from "react";
 
 import { groceryItemValidator } from "../../constants/validators";
-import Input from "../ui/Input";
-import Button from "../ui/Button";
+import Input from "../Input";
+import Button from "../Button";
 import { FeirappColors } from "../../constants/colors";
 
 const GroceryItemForm = ({ isEditing, onSubmit, defaultValues }) => {

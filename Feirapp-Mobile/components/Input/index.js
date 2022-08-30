@@ -1,8 +1,8 @@
 import { StyleSheet, Text, View, TextInput } from "react-native";
 import CurrencyInput from "react-native-currency-input";
 
-import DatePicker from "./DatePicker";
-import DropList from "./DropList";
+import DatePicker from "../DatePicker";
+import DropList from "../DropList";
 import { FeirappColors } from "../../constants/colors";
 import { GroceryItemCategory } from "../../constants/grocery-categories";
 

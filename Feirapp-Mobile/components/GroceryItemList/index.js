@@ -1,6 +1,6 @@
 import { FlatList, StyleSheet, View } from "react-native";
 import React from "react";
-import GroceryItem from "./GroceryItem";
+import GroceryItem from "../GroceryItem";
 import { FeirappColors } from "../../constants/colors";
 
 const GroceryItemList = ({ list, refresh, onRefresh }) => {

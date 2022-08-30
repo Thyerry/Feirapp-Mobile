@@ -2,12 +2,12 @@ import { Ionicons } from "@expo/vector-icons";
 import { useState } from "react";
 import { Pressable, StyleSheet, TextInput, View } from "react-native";
 
-import GroceryItemAPI from "../apis/GroceryItemAPI";
-import GroceryItemList from "../components/GroceryItem/GroceryItemList";
-import ErrorMessage from "../components/ui/ErrorMessage";
-import IconButton from "../components/ui/IconButton";
-import LoadingOverlay from "../components/ui/LoadingOverlay";
-import { FeirappColors } from "../constants/colors";
+import GroceryItemAPI from "../../apis/GroceryItemAPI";
+import GroceryItemList from "../../components/GroceryItemList";
+import ErrorMessage from "../../components/ErrorMessage";
+import IconButton from "../../components/IconButton";
+import LoadingOverlay from "../../components/LoadingOverlay";
+import { FeirappColors } from "../../constants/colors";
 
 const SearchGroceryItems = () => {
   const [searchItem, setSearchItem] = useState(null);
