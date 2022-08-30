@@ -4,7 +4,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import MainScreen from "./screens/MainScreen";
-import { FeirappColors } from "./constants/colors";
+import { FeirappColors } from "./src/constants/colors";
 import SearchGroceryItems from "./screens/SearchGroceryItems";
 import ManageGroceryItem from "./screens/ManageGroceryItem";
 import GroceryItemDetails from "./screens/GroceryItemDetails";
