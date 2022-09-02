@@ -3,18 +3,18 @@ export const groceryItemValidator = (groceryItemRequestBody, setInput) => {
   const priceIsValid = !isNaN(groceryItemRequestBody.price);
   const groceryCategoryIsValid = !isNaN(groceryItemRequestBody.groceryCategory);
   const brandNameIsValid = groceryItemRequestBody.brandName.length > 0;
-  const groceryStoreNameIsValid =
-    groceryItemRequestBody.groceryStoreName.length > 0;
-  const purchaseDateIsValid =
-    groceryItemRequestBody.purchaseDate.toString() !== "Invalid Date";
+  const groceryStoreNameIsValid
+    = groceryItemRequestBody.groceryStoreName.length > 0;
+  const purchaseDateIsValid
+    = groceryItemRequestBody.purchaseDate.toString() !== "Invalid Date";
 
   if (
-    !nameIsValid &&
-    !priceIsValid &&
-    !groceryCategoryIsValid &&
-    !brandNameIsValid &&
-    !groceryStoreNameIsValid &&
-    !purchaseDateIsValid
+    !nameIsValid
+    && !priceIsValid
+    && !groceryCategoryIsValid
+    && !brandNameIsValid
+    && !groceryStoreNameIsValid
+    && !purchaseDateIsValid
   ) {
     setInput((currentInput) => {
       return {

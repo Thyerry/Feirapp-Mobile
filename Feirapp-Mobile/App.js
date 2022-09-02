@@ -56,7 +56,7 @@ const StackNaviator = () => {
     </NavigationContainer>
   );
 };
-const MyStatusBar = function ({ backgroundColor, ...props }) {
+const MyStatusBar = ({ backgroundColor, ...props }) => {
   const statusBarStyle = [
     { backgroundColor },
     Platform.OS === "android" ? { paddingTop: 42 } : {},
@@ -69,7 +69,8 @@ const MyStatusBar = function ({ backgroundColor, ...props }) {
     </View>
   );
 };
-export default function App() {
+
+const App = () => {
   return (
     <>
       <MyStatusBar
@@ -79,4 +80,6 @@ export default function App() {
       <StackNaviator />
     </>
   );
-}
+};
+
+export default App;
