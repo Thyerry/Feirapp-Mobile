@@ -17,14 +17,18 @@ const ButtonScroll = ({ navigationHandler }) => {
         >
           Novo Produto
         </Button>
-        <Button style={styles.button}>Nova Lista</Button>
+        <Button style={styles.button} onPress={() => {}}>
+          Nova Lista
+        </Button>
         <Button
           style={styles.button}
           onPress={navigateTo.bind(this, "SearchGroceryItems")}
         >
           Pesquisar
         </Button>
-        <Button style={styles.button}>Importar Nota Fiscal</Button>
+        <Button style={styles.button} onPress={() => {}}>
+          Importar Nota Fiscal
+        </Button>
       </View>
     </ScrollView>
   );

@@ -13,47 +13,45 @@ const Stack = createNativeStackNavigator();
 
 const StackNaviator = () => {
   return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen
-          name="MainScreen"
-          component={MainScreen}
-          options={{
-            headerShown: false,
-            title: "Principal",
-          }}
-        />
-        <Stack.Screen
-          name="SearchGroceryItems"
-          component={SearchGroceryItems}
-          options={{
-            headerStyle: { backgroundColor: FeirappColors.primary010 },
-            animation: "slide_from_bottom",
-            title: "Pesquisar",
-            headerTitleStyle: { fontWeight: "bold" },
-          }}
-        />
-        <Stack.Screen
-          name="GroceryItemDetails"
-          component={GroceryItemDetails}
-          options={{
-            headerStyle: { backgroundColor: FeirappColors.primary010 },
-            animation: "slide_from_right",
-            title: "Detalhes",
-            headerTitleStyle: { fontWeight: "bold" },
-          }}
-        />
-        <Stack.Screen
-          name="ManageGroceryItem"
-          component={ManageGroceryItem}
-          options={{
-            headerStyle: { backgroundColor: FeirappColors.primary010 },
-            animation: "slide_from_right",
-            headerTitleStyle: { fontWeight: "bold" },
-          }}
-        />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <Stack.Navigator>
+      <Stack.Screen
+        name="MainScreen"
+        component={MainScreen}
+        options={{
+          headerShown: false,
+          title: "Principal",
+        }}
+      />
+      <Stack.Screen
+        name="SearchGroceryItems"
+        component={SearchGroceryItems}
+        options={{
+          headerStyle: { backgroundColor: FeirappColors.primary010 },
+          animation: "slide_from_bottom",
+          title: "Pesquisar",
+          headerTitleStyle: { fontWeight: "bold" },
+        }}
+      />
+      <Stack.Screen
+        name="GroceryItemDetails"
+        component={GroceryItemDetails}
+        options={{
+          headerStyle: { backgroundColor: FeirappColors.primary010 },
+          animation: "slide_from_right",
+          title: "Detalhes",
+          headerTitleStyle: { fontWeight: "bold" },
+        }}
+      />
+      <Stack.Screen
+        name="ManageGroceryItem"
+        component={ManageGroceryItem}
+        options={{
+          headerStyle: { backgroundColor: FeirappColors.primary010 },
+          animation: "slide_from_right",
+          headerTitleStyle: { fontWeight: "bold" },
+        }}
+      />
+    </Stack.Navigator>
   );
 };
 const MyStatusBar = ({ backgroundColor, ...props }) => {
@@ -72,13 +70,13 @@ const MyStatusBar = ({ backgroundColor, ...props }) => {
 
 const App = () => {
   return (
-    <>
+    <NavigationContainer >
       <MyStatusBar
         backgroundColor={FeirappColors.primary010}
         barStyle="light-content"
       />
       <StackNaviator />
-    </>
+    </NavigationContainer>
   );
 };
 

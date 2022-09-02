@@ -5,6 +5,7 @@ import PropTypes from "prop-types";
 import { FeirappColors } from "../../constants/colors";
 import { GroceryItemCategory } from "../../constants/grocery-categories";
 import { imagePicker } from "../../utils/image-picker";
+import { pressableStyle } from "../../utils/pressableStyle";
 
 const GroceryItem = ({ item }) => {
   const navigation = useNavigation();
@@ -21,10 +22,11 @@ const GroceryItem = ({ item }) => {
   };
 
   return (
-    <View style={{ flex: 0.5 }}>
+    <View style={{ flex: 0.5 }} testID="grocery-item-root-container">
       <Pressable
         onPress={navigationHandler}
-        style={({ pressed }) => (pressed ? { opacity: 0.5 } : {})}
+        style={pressableStyle}
+        testID="grocery-item-pressable"
       >
         <View style={styles.rootContainer}>
           <Image
@@ -33,10 +35,20 @@ const GroceryItem = ({ item }) => {
             resizeMode="center"
           />
           <View style={styles.detailsContainer}>
-            <Text style={styles.text}>{name}</Text>
-            {!!brandName && <Text style={styles.text}>{brandName}</Text>}
-            <Text style={styles.store}>Mercado: {groceryStoreName}</Text>
-            <Text style={styles.price}>R${price?.toFixed(2)}</Text>
+            <Text style={styles.text} testID="grocery-item-name">
+              {name}
+            </Text>
+            {!!brandName && (
+              <Text style={styles.text} testID="grocery-item-brand">
+                {brandName}
+              </Text>
+            )}
+            <Text style={styles.store} testID="grocery-item-store">
+              {`Mercado: ${groceryStoreName}`}
+            </Text>
+            <Text style={styles.price} testID="grocery-item-price">
+              {`R$${price?.toFixed(2)}`}
+            </Text>
           </View>
         </View>
       </Pressable>

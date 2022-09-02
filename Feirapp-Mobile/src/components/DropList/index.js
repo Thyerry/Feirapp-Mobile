@@ -29,7 +29,7 @@ const DropList = ({ value, onChange, items }) => {
 };
 
 DropList.propTypes = {
-  value: PropTypes.string.isRequired,
+  value: PropTypes.number.isRequired,
   onChange: PropTypes.func.isRequired,
   items: PropTypes.array.isRequired,
 };
