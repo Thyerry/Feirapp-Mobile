@@ -10,7 +10,8 @@
     "eject": "expo eject",
     "test": "jest",
     "test:oc": "jest -o --coverage",
-    "prepare": "cd .. && husky install"
+    "prepare": "cd .. && husky install",
+    "lint-staged": "lint-staged"
   },
   "dependencies": {
     "@expo/vector-icons": "^13.0.0",
