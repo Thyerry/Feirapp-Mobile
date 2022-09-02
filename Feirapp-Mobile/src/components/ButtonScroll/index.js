@@ -1,4 +1,6 @@
-import { ScrollView, StyleSheet, Text, View } from "react-native";
+import { ScrollView, StyleSheet, View } from "react-native";
+import PropTypes from "prop-types";
+
 import Button from "../Button";
 import { FeirappColors } from "../../constants/colors";
 
@@ -26,6 +28,10 @@ const ButtonScroll = ({ navigationHandler }) => {
       </View>
     </ScrollView>
   );
+};
+
+ButtonScroll.propTypes = {
+  navigationHandler: PropTypes.func.isRequired,
 };
 
 export default ButtonScroll;

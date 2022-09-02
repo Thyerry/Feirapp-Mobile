@@ -1,5 +1,5 @@
 import { ActivityIndicator, StyleSheet, View } from "react-native";
-import React from "react";
+import PropTypes from "prop-types";
 
 const LoadingOverlay = ({ backgroundColor, spinnerColor }) => {
   return (
@@ -7,6 +7,11 @@ const LoadingOverlay = ({ backgroundColor, spinnerColor }) => {
       <ActivityIndicator size="large" color={spinnerColor} />
     </View>
   );
+};
+
+LoadingOverlay.propTypes = {
+  backgroundColor: PropTypes.object,
+  spinnerColor: PropTypes.string,
 };
 
 export default LoadingOverlay;

@@ -1,13 +1,15 @@
-import { StyleSheet, Text, View } from "react-native";
-import { useNavigation } from "@react-navigation/native";
-import React, { useState } from "react";
+import { StyleSheet, View } from "react-native";
+import PropTypes from "prop-types";
+import { useState } from "react";
 
 import { groceryItemValidator } from "../../constants/validators";
 import Input from "../Input";
 import Button from "../Button";
 import { FeirappColors } from "../../constants/colors";
 
-const GroceryItemForm = ({ isEditing, onSubmit, defaultValues }) => {
+// TODO: remove the disable bellow after creating validators for the fields
+// eslint-disable-next-line no-unused-vars
+const GroceryItemForm = ({ onSubmit, isEditing, defaultValues }) => {
   const [input, setInput] = useState({
     id: {
       value: defaultValues ? defaultValues.id : "",
@@ -111,6 +113,12 @@ const GroceryItemForm = ({ isEditing, onSubmit, defaultValues }) => {
       <Button onPress={submitHandler}>Finalizar</Button>
     </View>
   );
+};
+
+GroceryItemForm.propTypes = {
+  isEditing: PropTypes.bool,
+  onSubmit: PropTypes.func.isRequired,
+  defaultValues: PropTypes.object,
 };
 
 export default GroceryItemForm;

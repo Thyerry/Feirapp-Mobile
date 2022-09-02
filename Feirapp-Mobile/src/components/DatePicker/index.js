@@ -1,6 +1,7 @@
-import { Platform, StyleSheet, Text, View } from "react-native";
+import { Platform, StyleSheet, View } from "react-native";
 import DateTimePicker from "@react-native-community/datetimepicker";
 import { useState } from "react";
+import PropTypes from "prop-types";
 
 import { dateFormatter, toUTC } from "../../utils/date";
 import Button from "../Button";
@@ -53,6 +54,13 @@ const DatePicker = ({ value, onChange, buttonStyle, textStyle }) => {
       )}
     </View>
   );
+};
+
+DatePicker.propTypes = {
+  value: PropTypes.object.isRequired,
+  onChange: PropTypes.func.isRequired,
+  buttonStyle: PropTypes.object.isRequired,
+  textStyle: PropTypes.object.isRequired,
 };
 
 export default DatePicker;

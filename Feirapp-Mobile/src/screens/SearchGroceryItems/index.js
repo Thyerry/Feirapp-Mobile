@@ -1,6 +1,5 @@
-import { Ionicons } from "@expo/vector-icons";
 import { useState } from "react";
-import { Pressable, StyleSheet, TextInput, View } from "react-native";
+import { StyleSheet, TextInput, View } from "react-native";
 
 import GroceryItemAPI from "../../apis/GroceryItemAPI";
 import GroceryItemList from "../../components/GroceryItemList";

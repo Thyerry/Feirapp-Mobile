@@ -1,5 +1,4 @@
 import { render, screen, fireEvent } from "@testing-library/react-native";
-
 import Button from ".";
 import { Text, View } from "react-native";
 
@@ -14,7 +13,7 @@ const buttonText = (
 describe("<Button />", () => {
   describe("When it renders", () => {
     beforeEach(() => {
-      render(<Button>{buttonText}</Button>);
+      render(<Button onPress={() => {}}>{buttonText}</Button>);
     });
     it("it should render all intern components properly", () => {
       expect(screen.getByTestId("button-container"));
@@ -34,7 +33,7 @@ describe("<Button />", () => {
   describe("When the button is pressed", () => {
     it("it should callback the onPress event", () => {
       const onPressEvent = jest.fn();
-      const { getByTestId } = render(<Button onPress={onPressEvent}></Button>);
+      const { getByTestId } = render(<Button onPress={onPressEvent}>{buttonText}</Button>);
       fireEvent(getByTestId("button-pressable"), "onPress", "asd");
       expect(onPressEvent).toHaveBeenCalledWith("asd");
     });
