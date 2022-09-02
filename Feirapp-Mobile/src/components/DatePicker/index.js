@@ -31,7 +31,7 @@ const DatePicker = ({ value, onChange, buttonStyle, textStyle }) => {
             flexDirection: "row",
           }}
         >
-          <View style={{ width: "24%" }}></View>
+          <View style={{ width: "24%" }} />
           <DateTimePicker
             testID="dateTimePicker"
             value={value}
@@ -40,7 +40,7 @@ const DatePicker = ({ value, onChange, buttonStyle, textStyle }) => {
             onChange={onChangeValue}
             style={{ width: "53%" }}
           />
-          <View style={{ width: "23%" }}></View>
+          <View style={{ width: "23%" }} />
         </View>
       )}
       {!isIos && (

@@ -9,7 +9,7 @@ const ButtonScroll = ({ navigationHandler }) => {
     navigationHandler(screenName);
   };
   return (
-    <ScrollView horizontal={true}>
+    <ScrollView horizontal>
       <View style={styles.buttonsContainer}>
         <Button
           style={styles.button}
