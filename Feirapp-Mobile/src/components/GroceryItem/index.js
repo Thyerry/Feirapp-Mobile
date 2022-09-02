@@ -1,5 +1,6 @@
 import { Image, Pressable, StyleSheet, Text, View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import PropTypes from "prop-types";
 
 import { FeirappColors } from "../../constants/colors";
 import { GroceryItemCategory } from "../../constants/grocery-categories";
@@ -41,6 +42,10 @@ const GroceryItem = ({ item }) => {
       </Pressable>
     </View>
   );
+};
+
+GroceryItem.propTypes = {
+  item: PropTypes.object.isRequired,
 };
 
 export default GroceryItem;

@@ -1,5 +1,6 @@
 import { StyleSheet, Text, View, TextInput } from "react-native";
 import CurrencyInput from "react-native-currency-input";
+import PropTypes from "prop-types";
 
 import DatePicker from "../DatePicker";
 import DropList from "../DropList";
@@ -41,11 +42,12 @@ const Input = ({ type, title, placeholder, value, onChange }) => {
             textStyle={styles.dateTextInput}
           />
         );
-      case "pickerSelect":
+      case "pickerSelect": {
         const items = GroceryItemCategory.map(
           (category) => new Object({ label: category.name, value: category.id })
         );
         return <DropList value={value} onChange={onChange} items={items} />;
+      }
       default:
         break;
     }
@@ -56,6 +58,14 @@ const Input = ({ type, title, placeholder, value, onChange }) => {
       {inputType()}
     </View>
   );
+};
+
+Input.propTypes = {
+  type: PropTypes.string.isRequired,
+  title: PropTypes.string,
+  placeholder: PropTypes.string,
+  value: PropTypes.any.isRequired,
+  onChange: PropTypes.func.isRequired,
 };
 
 export default Input;

@@ -1,6 +1,8 @@
-import { StyleSheet, Text, View } from "react-native";
-import React, { useState } from "react";
+import { StyleSheet } from "react-native";
+import { useState } from "react";
 import DropDownPicker from "react-native-dropdown-picker";
+import PropTypes from "prop-types";
+
 import { FeirappColors } from "../../constants/colors";
 
 const DropList = ({ value, onChange, items }) => {
@@ -24,6 +26,12 @@ const DropList = ({ value, onChange, items }) => {
       zIndex={3000}
     />
   );
+};
+
+DropList.propTypes = {
+  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+  items: PropTypes.array.isRequired,
 };
 
 export default DropList;

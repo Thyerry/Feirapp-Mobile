@@ -1,5 +1,6 @@
 import { StyleSheet, Text, View, Image, FlatList, Alert } from "react-native";
-import React, { useLayoutEffect } from "react";
+import { useLayoutEffect } from "react";
+import PropTypes from "prop-types";
 
 import { FeirappColors } from "../../constants/colors";
 import { dateFormatter } from "../../utils/date";
@@ -20,7 +21,7 @@ const GroceryItemDetails = ({ route, navigation }) => {
     name,
     price,
     purchaseDate,
-  } = route.params?.groceryItem;
+  } = route.params.groceryItem;
 
   const imageUrl = imagePicker(groceryImageUrl, groceryCategory);
   const category = GroceryItemCategory.find(
@@ -133,6 +134,11 @@ const GroceryItemDetails = ({ route, navigation }) => {
       </View>
     </View>
   );
+};
+
+GroceryItemDetails.propTypes = {
+  route: PropTypes.object.isRequired,
+  navigation: PropTypes.object.isRequired,
 };
 
 export default GroceryItemDetails;

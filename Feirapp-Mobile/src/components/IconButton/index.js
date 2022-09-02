@@ -1,5 +1,6 @@
 import { Pressable, View } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
+import PropTypes from "prop-types";
 
 const IconButton = ({ name, size, onPress, style }) => {
   return (
@@ -12,6 +13,13 @@ const IconButton = ({ name, size, onPress, style }) => {
       </View>
     </Pressable>
   );
+};
+
+IconButton.propTypes = {
+  name: PropTypes.string.isRequired,
+  size: PropTypes.number.isRequired,
+  onPress: PropTypes.func.isRequired,
+  style: PropTypes.object,
 };
 
 export default IconButton;

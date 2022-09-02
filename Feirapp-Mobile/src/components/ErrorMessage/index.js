@@ -1,5 +1,5 @@
-import { StyleSheet, Text, View } from "react-native";
-import React from "react";
+import { Text, View } from "react-native";
+import PropTypes from "prop-types";
 
 const ErrorMessage = ({ viewStyle, textStyle, children }) => {
   return (
@@ -9,6 +9,10 @@ const ErrorMessage = ({ viewStyle, textStyle, children }) => {
   );
 };
 
-export default ErrorMessage;
+ErrorMessage.propTypes = {
+  viewStyle: PropTypes.object.isRequired,
+  textStyle: PropTypes.object.isRequired,
+  children: PropTypes.any.isRequired,
+};
 
-const styles = StyleSheet.create({});
+export default ErrorMessage;

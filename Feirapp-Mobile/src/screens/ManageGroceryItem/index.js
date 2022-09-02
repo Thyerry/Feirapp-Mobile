@@ -1,5 +1,6 @@
-import { StyleSheet, Alert } from "react-native";
+import { Alert } from "react-native";
 import { useLayoutEffect, useState } from "react";
+import PropTypes from "prop-types";
 
 import { FeirappColors } from "../../constants/colors";
 import GroceryItemAPI from "../../apis/GroceryItemAPI";
@@ -70,6 +71,9 @@ const ManageGroceryItem = ({ route, navigation }) => {
   );
 };
 
-export default ManageGroceryItem;
+ManageGroceryItem.propTypes = {
+  route: PropTypes.object,
+  navigation: PropTypes.object.isRequired,
+};
 
-const styles = StyleSheet.create({});
+export default ManageGroceryItem;

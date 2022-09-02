@@ -1,5 +1,6 @@
 import { FlatList, StyleSheet, View } from "react-native";
-import React from "react";
+import PropTypes from "prop-types";
+
 import GroceryItem from "../GroceryItem";
 import { FeirappColors } from "../../constants/colors";
 
@@ -16,6 +17,12 @@ const GroceryItemList = ({ list, refresh, onRefresh }) => {
       />
     </View>
   );
+};
+
+GroceryItemList.propTypes = {
+  list: PropTypes.array.isRequired,
+  refresh: PropTypes.bool,
+  onRefresh: PropTypes.func,
 };
 
 export default GroceryItemList;

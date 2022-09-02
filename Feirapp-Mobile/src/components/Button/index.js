@@ -1,5 +1,6 @@
 import { Platform, Pressable, StyleSheet, Text, View } from "react-native";
-import React from "react";
+import PropTypes from "prop-types";
+
 import { FeirappColors } from "../../constants/colors";
 import { pressableStyle } from "../../utils/pressableStyle";
 
@@ -20,6 +21,13 @@ const Button = ({ children, onPress, style, textStyle }) => {
       </Pressable>
     </View>
   );
+};
+
+Button.propTypes = {
+  children: PropTypes.any.isRequired,
+  onPress: PropTypes.func.isRequired,
+  style: PropTypes.object,
+  textStyle: PropTypes.object,
 };
 
 export default Button;

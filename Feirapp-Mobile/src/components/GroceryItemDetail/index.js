@@ -1,5 +1,6 @@
 import { StyleSheet, Text, View } from "react-native";
-import React from "react";
+import PropTypes from "prop-types";
+
 import { FeirappColors } from "../../constants/colors";
 
 const GroceryItemDetail = ({ title, value, containerStyle, textStyle }) => {
@@ -9,6 +10,13 @@ const GroceryItemDetail = ({ title, value, containerStyle, textStyle }) => {
       <Text style={textStyle}>{value}</Text>
     </View>
   );
+};
+
+GroceryItemDetail.propTypes = {
+  title: PropTypes.string.isRequired,
+  value: PropTypes.object.isRequired,
+  containerStyle: PropTypes.object.isRequired,
+  textStyle: PropTypes.object.isRequired,
 };
 
 export default GroceryItemDetail;
