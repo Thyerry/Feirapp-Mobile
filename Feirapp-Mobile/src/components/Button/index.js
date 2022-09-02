@@ -1,21 +1,21 @@
 import { Platform, Pressable, StyleSheet, Text, View } from "react-native";
 import React from "react";
 import { FeirappColors } from "../../constants/colors";
+import { pressableStyle } from "../../utils/pressableStyle";
 
 const Button = ({ children, onPress, style, textStyle }) => {
   return (
-    <View style={[styles.buttonContainer, style]}>
+    <View style={[styles.buttonContainer, style]} testID="button-container" acc>
       <Pressable
         onPress={onPress}
         android_ripple={{ color: FeirappColors.primary090 }}
-        style={
-          Platform.OS === "ios"
-            ? ({ pressed }) => (pressed ? { opacity: 0.25 } : {})
-            : {}
-        }
+        testID="button-pressable"
+        style={pressableStyle(Platform.OS)}
       >
-        <View style={styles.button}>
-          <Text style={[styles.text, textStyle]}>{children}</Text>
+        <View style={styles.button} testID="button-children-container">
+          <Text style={[styles.text, textStyle]} testID="button-children-text">
+            {children}
+          </Text>
         </View>
       </Pressable>
     </View>
@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     marginVertical: 8,
     overflow: "hidden",
-    zIndex: -1
+    zIndex: -1,
   },
   button: {
     padding: 8,
