@@ -6,17 +6,21 @@ import { FeirappColors } from "../../constants/colors";
 const GroceryItemDetail = ({ title, value, containerStyle, textStyle }) => {
   return (
     <View style={[styles.container, containerStyle]}>
-      <Text style={textStyle}>{title}</Text>
-      <Text style={textStyle}>{value}</Text>
+      <Text style={textStyle} testID="grocery-item-detail-title">
+        {title}
+      </Text>
+      <Text style={textStyle} testID="grocery-item-detail-value">
+        {value}
+      </Text>
     </View>
   );
 };
 
 GroceryItemDetail.propTypes = {
   title: PropTypes.string.isRequired,
-  value: PropTypes.object.isRequired,
-  containerStyle: PropTypes.object.isRequired,
-  textStyle: PropTypes.object.isRequired,
+  value: PropTypes.string.isRequired,
+  containerStyle: PropTypes.object,
+  textStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
 };
 
 export default GroceryItemDetail;
