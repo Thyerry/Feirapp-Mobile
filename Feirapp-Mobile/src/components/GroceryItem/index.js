@@ -22,7 +22,7 @@ const GroceryItem = ({ item }) => {
   };
 
   return (
-    <View style={{ flex: 0.5 }} testID="grocery-item-root-container">
+    <View style={{ flex: 0.5 }} testID="grocery-item">
       <Pressable
         onPress={navigationHandler}
         style={pressableStyle}

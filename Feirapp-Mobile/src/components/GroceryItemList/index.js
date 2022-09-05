@@ -8,6 +8,7 @@ const GroceryItemList = ({ list, refresh, onRefresh }) => {
   return (
     <View style={styles.groceryItemsContainer}>
       <FlatList
+        testID="grocery-item-list"
         numColumns={2}
         data={list}
         keyExtractor={(item) => item.id}

@@ -10,8 +10,7 @@
     "eject": "expo eject",
     "test": "jest --coverage",
     "test:oc": "jest -o --coverage",
-    "prepare": "cd .. && husky install",
-    "lint-staged": "lint-staged"
+    "prepare": "cd .. && husky install"
   },
   "dependencies": {
     "@expo/vector-icons": "^13.0.0",
@@ -63,9 +62,9 @@
     }
   },
   "lint-staged": {
-    "*.js": [
+    "*.test.js": [
       "eslint --fix",
-      "cross-env CI=true npm test --bail --coverage --findRelatedTests"
+      "cross-env CI=true npm test --coverage --findRelatedTests"
     ]
   }
 }
