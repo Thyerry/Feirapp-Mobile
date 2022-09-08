@@ -13,8 +13,9 @@ const Input = ({ type, title, placeholder, value, onChange }) => {
       case "text":
         return (
           <TextInput
+            testID="text-input"
             placeholder={placeholder}
-            keyboardType="web-search"
+            keyboardType="default"
             style={styles.textInput}
             value={value}
             onChangeText={onChange}
@@ -23,6 +24,7 @@ const Input = ({ type, title, placeholder, value, onChange }) => {
       case "numeric":
         return (
           <CurrencyInput
+            testID="numeric-input"
             placeholder={placeholder}
             keyboardType="numeric"
             style={styles.textInput}
@@ -48,12 +50,10 @@ const Input = ({ type, title, placeholder, value, onChange }) => {
         );
         return <DropList value={value} onChange={onChange} items={items} />;
       }
-      default:
-        break;
     }
   };
   return (
-    <View style={styles.container}>
+    <View style={styles.container} testID="input-container">
       <Text style={styles.title}>{title}</Text>
       {inputType()}
     </View>
