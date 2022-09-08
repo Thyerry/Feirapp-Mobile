@@ -69,7 +69,7 @@ const GroceryItemForm = ({ onSubmit, isEditing, defaultValues }) => {
   };
 
   return (
-    <View style={styles.rootContainer}>
+    <View style={styles.rootContainer} testID="grocery-item-form-container">
       <Input
         type="text"
         title="Nome do produto"

@@ -23,26 +23,24 @@ const DatePicker = ({ value, onChange, buttonStyle, textStyle }) => {
     setShow(true);
   };
 
+  const datePicker = (
+    <View style={styles.dateContainer}>
+      <View style={{ width: "24%" }} />
+      <DateTimePicker
+        testID="date-input"
+        value={value}
+        mode="date"
+        display="default"
+        onChange={onChangeValue}
+        style={{ width: "53%" }}
+      />
+      <View style={{ width: "23%" }} />
+    </View>
+  );
+
   return (
-    <View style={styles.datePickerStyle}>
-      {show && (
-        <View
-          style={{
-            flexDirection: "row",
-          }}
-        >
-          <View style={{ width: "24%" }} />
-          <DateTimePicker
-            testID="dateTimePicker"
-            value={value}
-            mode="date"
-            display="default"
-            onChange={onChangeValue}
-            style={{ width: "53%" }}
-          />
-          <View style={{ width: "23%" }} />
-        </View>
-      )}
+    <View style={styles.datePickerStyle} testID="date-picker-container">
+      {show && datePicker}
       {!isIos && (
         <Button
           onPress={showDatePicker}
@@ -69,6 +67,9 @@ const styles = StyleSheet.create({
   datePickerStyle: {
     backgroundColor: FeirappColors.primary010,
     padding: 1,
+  },
+  dateContainer: {
+    flexDirection: "row",
   },
   button: {
     borderRadius: 0,

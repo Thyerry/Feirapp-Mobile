@@ -12,6 +12,7 @@ const DropList = ({ value, onChange, items }) => {
 
   return (
     <DropDownPicker
+      testID="drop-list-input"
       setValue={setStateValue}
       setOpen={setOpen}
       setItems={setStateItems}
