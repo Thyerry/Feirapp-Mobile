@@ -36,7 +36,6 @@ const GroceryItemDetails = ({ route, navigation }) => {
 
   const deleteHandler = async () => {
     try {
-      console.log(id);
       await GroceryItemAPI.delete(id);
       Alert.alert(
         "Produto excluído",
@@ -44,7 +43,7 @@ const GroceryItemDetails = ({ route, navigation }) => {
         [{ text: "Voltar", onPress: () => navigation.goBack() }]
       );
     } catch (error) {
-      //console.log(error.response.data);
+      // TODO: handle the errors
     }
   };
   const onDelete = () => {

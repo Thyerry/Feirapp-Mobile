@@ -1,27 +1,18 @@
-import { Platform, StyleSheet, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 import DateTimePicker from "@react-native-community/datetimepicker";
 import { useState } from "react";
 import PropTypes from "prop-types";
 
-import { dateFormatter, toUTC } from "../../utils/date";
+import { dateFormatter } from "../../utils/date";
 import Button from "../Button";
 import { FeirappColors } from "../../constants/colors";
+import { getOS, onChangeValue, setConsts, showDatePicker } from "./helpers";
 
 const DatePicker = ({ value, onChange, buttonStyle, textStyle }) => {
-  const isIos = Platform.OS === "ios";
+  const isIos = getOS();
   const [show, setShow] = useState(isIos);
 
-  const onChangeValue = (event, selectedDate) => {
-    const currentDate = selectedDate || value;
-    onChange(toUTC(currentDate));
-    if (!isIos) {
-      setShow(isIos);
-    }
-  };
-
-  const showDatePicker = () => {
-    setShow(true);
-  };
+  setConsts(value, onChange, setShow, isIos);
 
   const datePicker = (
     <View style={styles.dateContainer}>
@@ -38,10 +29,9 @@ const DatePicker = ({ value, onChange, buttonStyle, textStyle }) => {
     </View>
   );
 
-  return (
-    <View style={styles.datePickerStyle} testID="date-picker-container">
-      {show && datePicker}
-      {!isIos && (
+  const renderAndroidButton = () => {
+    if (!isIos) {
+      return (
         <Button
           onPress={showDatePicker}
           style={[styles.button, buttonStyle]}
@@ -49,7 +39,14 @@ const DatePicker = ({ value, onChange, buttonStyle, textStyle }) => {
         >
           {dateFormatter(value, "dd/mm/yyyy")}
         </Button>
-      )}
+      );
+    }
+  };
+
+  return (
+    <View style={styles.datePickerStyle} testID="date-picker-container">
+      {show && datePicker}
+      {renderAndroidButton()}
     </View>
   );
 };

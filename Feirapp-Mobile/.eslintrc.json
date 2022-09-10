@@ -21,6 +21,7 @@
         "react"
     ],
     "rules": {
+        "no-case-declarations": "off",
         "react/jsx-boolean-value": "error",
         "operator-linebreak": [2, "before"],
         "react/destructuring-assignment": "error",
