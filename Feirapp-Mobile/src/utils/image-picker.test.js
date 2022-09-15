@@ -1,5 +1,5 @@
-import { imagePicker } from "../image-picker";
-import { GroceryItemCategory } from "../../constants/grocery-categories";
+import { imagePicker } from "./image-picker";
+import { GroceryItemCategory } from "../constants/grocery-categories";
 
 const mockGroceryItem = {
   imageUrl: "url",

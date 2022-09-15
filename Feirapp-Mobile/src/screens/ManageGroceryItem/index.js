@@ -44,8 +44,6 @@ const ManageGroceryItem = ({ route, navigation }) => {
         );
       }
     } catch ({ response }) {
-      console.log(response.status);
-      console.log(response.data);
       setError(true);
       setIsSubmitting(false);
     }

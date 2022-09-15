@@ -1,13 +1,11 @@
 export const dateFormatter = (date, format) => {
+  const semiFormattedDate = date.toISOString().slice(0, 10);
   switch (format) {
     case "dd/mm/yyyy":
-      return `${date.getUTCDate()}/${
-        date.getUTCMonth() + 1
-      }/${date.getUTCFullYear()}`;
+      let dateValues = semiFormattedDate.split("-");
+      return `${dateValues[2]}/${dateValues[1]}/${dateValues[0]}`;
     case "yyyy-mm-dd":
-      return date.toISOString().slice(0, 10);
-    default:
-      break;
+      return semiFormattedDate;
   }
 };
 

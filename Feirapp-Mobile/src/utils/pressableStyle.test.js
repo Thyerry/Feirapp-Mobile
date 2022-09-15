@@ -1,4 +1,4 @@
-import { pressableStyle } from "../pressableStyle";
+import { pressableStyle } from "./pressableStyle";
 
 const iosStyle = { opacity: 0.25 };
 const noStyle = {};

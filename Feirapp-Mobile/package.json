@@ -56,15 +56,11 @@
       }
     }
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
+  "husky": {},
   "lint-staged": {
     "*.test.js": [
       "eslint --fix",
-      "cross-env CI=true npm test --coverage --findRelatedTests"
+      "cross-env CI=true npm test --bail --coverage --findRelatedTests"
     ]
   }
 }

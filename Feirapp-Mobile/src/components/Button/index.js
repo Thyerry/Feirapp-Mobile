@@ -6,7 +6,7 @@ import { pressableStyle } from "../../utils/pressableStyle";
 
 const Button = ({ children, onPress, style, textStyle }) => {
   return (
-    <View style={[styles.buttonContainer, style]} testID="button-container" acc>
+    <View style={[styles.buttonContainer, style]} testID="button-container">
       <Pressable
         onPress={onPress}
         android_ripple={{ color: FeirappColors.primary090 }}
@@ -26,7 +26,7 @@ const Button = ({ children, onPress, style, textStyle }) => {
 Button.propTypes = {
   children: PropTypes.any.isRequired,
   onPress: PropTypes.func.isRequired,
-  style: PropTypes.object,
+  style: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
   textStyle: PropTypes.object,
 };
 
