@@ -3,8 +3,15 @@ import PropTypes from "prop-types";
 
 const LoadingOverlay = ({ backgroundColor, spinnerColor }) => {
   return (
-    <View style={[styles.overlay, backgroundColor]}>
-      <ActivityIndicator size="large" color={spinnerColor} />
+    <View
+      style={[styles.overlay, backgroundColor]}
+      testID="loading-overlay-container"
+    >
+      <ActivityIndicator
+        size="large"
+        color={spinnerColor}
+        testID="loading-overlay-activity-indicator"
+      />
     </View>
   );
 };
