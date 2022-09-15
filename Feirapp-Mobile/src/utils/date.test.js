@@ -1,4 +1,4 @@
-import * as date from "../date";
+import * as date from "./date";
 
 describe("date.js", () => {
   describe("When invoking dateFormatter", () => {
@@ -16,7 +16,6 @@ describe("date.js", () => {
     describe("passing the yyyy-mm-dd ", () => {
       it("it should return the date formatted", () => {
         const newDate = new Date(1111, 0, 1);
-
         const result = date.dateFormatter(newDate, "yyyy-mm-dd");
         expect(result).toBe("1111-01-01");
       });

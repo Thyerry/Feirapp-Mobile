@@ -2,16 +2,16 @@ import { Platform } from "react-native";
 
 import { toUTC } from "../../utils/date";
 
-let usedValue = undefined;
-let usedOnChange = undefined;
-let usedSetShow = undefined;
-let usedIsIos = undefined;
+let _value;
+let _onChange;
+let _setShow;
+let _isIos;
 
 export const setConsts = (value, onChange, setShow, isIos) => {
-  usedValue = value;
-  usedOnChange = onChange;
-  usedSetShow = setShow;
-  usedIsIos = isIos;
+  _value = value;
+  _onChange = onChange;
+  _setShow = setShow;
+  _isIos = isIos;
 };
 
 export const getOS = () => {
@@ -19,13 +19,13 @@ export const getOS = () => {
 };
 
 export const showDatePicker = () => {
-  usedSetShow(true);
+  _setShow(true);
 };
 
 export const onChangeValue = (event, selectedDate) => {
-  const currentDate = selectedDate || usedValue;
-  usedOnChange(toUTC(currentDate));
-  if (!usedIsIos) {
-    usedSetShow(usedIsIos);
+  const currentDate = selectedDate || _value;
+  _onChange(toUTC(currentDate));
+  if (!_isIos) {
+    _setShow(_isIos);
   }
 };
