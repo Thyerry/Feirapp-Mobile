@@ -6,7 +6,11 @@ const errorMessageChildren = "Error Message";
 describe("<ErrorMessage />", () => {
   describe("When it renders", () => {
     beforeEach(() =>
-      render(<ErrorMessage>{errorMessageChildren}</ErrorMessage>)
+      render(
+        <ErrorMessage textStyle={{}} viewStyle={{}}>
+          {errorMessageChildren}
+        </ErrorMessage>
+      )
     );
     it("it shouldn't crash", () => {
       expect(screen.getByTestId("error-message-container"));
