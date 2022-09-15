@@ -3,8 +3,10 @@ import PropTypes from "prop-types";
 
 const ErrorMessage = ({ viewStyle, textStyle, children }) => {
   return (
-    <View style={viewStyle}>
-      <Text style={textStyle}>{children}</Text>
+    <View style={viewStyle} testID="error-message-container">
+      <Text style={textStyle} testID="error-message-children">
+        {children}
+      </Text>
     </View>
   );
 };
