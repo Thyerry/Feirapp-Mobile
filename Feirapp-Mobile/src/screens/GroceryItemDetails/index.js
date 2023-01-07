@@ -74,7 +74,7 @@ const GroceryItemDetails = ({ route, navigation }) => {
   }, [navigation]);
 
   return (
-    <View style={styles.rootContainer}>
+    <View style={styles.rootContainer} testID="grocery-item-details-container">
       <View style={styles.imageContainer}>
         <Image
           source={{ uri: imageUrl }}
