@@ -58,10 +58,10 @@ describe("<GroceryItem />", () => {
     });
   });
   describe("When it is pressed", () => {
-    it("should navigate", () => {
+    it("should navigate to GroceryItemDetails screen", () => {
       const { getByTestId } = render(<GroceryItem item={groceryItem} />);
       fireEvent(getByTestId("grocery-item-pressable"), "onPress");
-      expect(mockNavigate).toHaveBeenCalled();
+      expect(mockNavigate).toHaveBeenCalledWith("GroceryItemDetails", { groceryItem: groceryItem });
     });
   });
 });
