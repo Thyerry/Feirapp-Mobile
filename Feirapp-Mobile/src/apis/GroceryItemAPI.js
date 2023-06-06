@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const APIUrl = "https://d12e-45-187-171-214.sa.ngrok.io/GroceryItem/";
+const APIUrl = "https://488d-45-187-171-214.sa.ngrok.io/GroceryItem/";
 
 const GroceryItemAPI = {
   getAll: async () => await axios.get(APIUrl),
